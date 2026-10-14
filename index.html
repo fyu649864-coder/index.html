@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <title>学生待办</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">STUDENT PLANNER</p>
+          <h1>我的待办</h1>
+          <p class="subtitle">把今天要做的事，一件件完成。</p>
+        </div>
+        <div class="progress-card" aria-label="今日进度">
+          <span id="progress-count">0 / 0</span>
+          <span class="progress-label">已完成</span>
+        </div>
+      </header>
+
+      <section class="add-card" aria-labelledby="add-title">
+        <h2 id="add-title">添加任务</h2>
+        <form id="todo-form" class="todo-form">
+          <label class="sr-only" for="todo-input">任务内容</label>
+          <input id="todo-input" name="todo" type="text" maxlength="120" placeholder="例如：完成数学作业" autocomplete="off" required />
+          <button type="submit">添加</button>
+        </form>
+      </section>
+
+      <section class="list-card" aria-labelledby="list-title">
+        <div class="list-heading">
+          <h2 id="list-title">任务列表</h2>
+          <span id="task-count" class="task-count">0 项任务</span>
+        </div>
+        <div id="filters" class="filters" role="group" aria-label="任务状态筛选">
+          <button class="filter-button is-active" type="button" data-filter="all">全部</button>
+          <button class="filter-button" type="button" data-filter="active">进行中</button>
+          <button class="filter-button" type="button" data-filter="completed">已完成</button>
+        </div>
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+        <p id="empty-state" class="empty-state">还没有任务，先添加一件要做的事吧。</p>
+      </section>
+    </main>
+    <script src="./todo.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
